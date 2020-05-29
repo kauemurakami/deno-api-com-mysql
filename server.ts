@@ -1,4 +1,4 @@
-import { App, Router, Request, Response } from "https://deno.land/x/attain/mod.ts";
+import { App, Request, Response } from "https://deno.land/x/attain/mod.ts";
 import "./config/db.ts"
 import clientsRouter from "./routes/clients.router.ts"
 
