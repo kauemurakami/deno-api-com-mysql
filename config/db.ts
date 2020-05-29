@@ -10,8 +10,9 @@ const db = new Database(
     }
 )
 
+//array de modelos
 db.link([Client])
-
+//drop/create  no inicio da aplicação
 await db.sync({drop: true})
 
 export default db
