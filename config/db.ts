@@ -5,7 +5,7 @@ const db = new Database(
     "mysql",{
         database: "airlines",
         host: "localhost",
-        username: "db_root",
+        username: "root",
         password: "mariadb10",
     }
 )
