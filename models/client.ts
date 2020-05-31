@@ -1,4 +1,4 @@
-import { DATA_TYPES, Database, Model } from 'https://deno.land/x/denodb/mod.ts'
+import { DATA_TYPES, Model } from 'https://deno.land/x/denodb/mod.ts'
 
 export default class Client extends Model {
     static table = "clients"
