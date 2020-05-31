@@ -1,5 +1,5 @@
 import Client from "../models/client.ts"
-import { App, Router, Request, Response } from "https://deno.land/x/attain/mod.ts";
+import { Request, Response } from "https://deno.land/x/attain/mod.ts";
 
 export const getUsers = async (req: Request, res: Response) => {
     res.status(200).send({ clients: await Client.all() })
