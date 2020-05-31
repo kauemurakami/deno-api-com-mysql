@@ -10,7 +10,9 @@ export const getUser = async (req: Request, res: Response) => {
 }
 
 export const updateUser = async (req: Request, res: Response) => {
-
+    const body = await req.body()
+    await Client.select('id', req.params.id).update( { name: body.value.name , email: body.value.email }) 
+    res.status(200).send({ clients: Client.all() }) 
 
 }
 
@@ -18,6 +20,7 @@ export const addUser = async (req: Request, res: Response) => {
     const body = await req.body()
     const client : Client  = body.value
     console.log(client)
+
     const {name, email, password} = body.value
     //await Client.create( body.value  )
     await Client.create( { name: name, email: email, password: password }  )
