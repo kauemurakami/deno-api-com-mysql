@@ -1,4 +1,4 @@
-import { App, Router, Request, Response } from "https://deno.land/x/attain/mod.ts";
+import {  Router } from "https://deno.land/x/attain/mod.ts";
 import { getUsers, getUser, updateUser, addUser, deleteUser } from "../controllers/client_controller.ts"
 
 const clientsRouter = new Router()
