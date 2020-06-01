@@ -6,30 +6,35 @@ export const getUsers = async (req: Request, res: Response) => {
 }
 
 export const getUser = async (req: Request, res: Response) => {
-    res.status(200).send({ client: await Client.where('id', req.params.id).first() }) 
+    res.status(200).send({ client: await Client.where('id', req.params.id).first() })
 }
 
 export const updateUser = async (req: Request, res: Response) => {
     const body = await req.body()
-    await Client.select('id', req.params.id).update( { name: body.value.name , email: body.value.email }) 
-    res.status(200).send({ clients: Client.all() }) 
+    if (Client.select('id', '===', req.params.id)) {
+        await Client.where('id', req.params.id).update({ name: body.value.name, email: body.value.email })
+        res.status(200).send({ clients: Client.all() })
+    }else{
+        res.status(401).send({ message: "usuário não encontrado" })
+    }
+
 
 }
 
 export const addUser = async (req: Request, res: Response) => {
     const body = await req.body()
-    const client : Client  = body.value
+    const client: Client = body.value
     console.log(client)
 
-    const {name, email, password} = body.value
+    const { name, email, password } = body.value
     //await Client.create( body.value  )
-    await Client.create( { name: name, email: email, password: password }  )
-    res.status(200).send( {client: client} ) 
+    await Client.create({ name: name, email: email, password: password })
+    res.status(200).send({ client: client })
 }
 
 export const deleteUser = async (req: Request, res: Response) => {
     await Client.deleteById(req.params.id)
-    res.status(200).send( { clients : Client.all() } )
+    res.status(200).send({ clients: Client.all() })
 }
 
 

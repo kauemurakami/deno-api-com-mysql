@@ -9,8 +9,8 @@ clientsRouter.get("/:id", getUser)
 
 clientsRouter.post("/", addUser)
 
-  clientsRouter.put("/:id", updateUser);
+clientsRouter.put("/:id", updateUser);
 
-  clientsRouter.delete("/:id", deleteUser);
+clientsRouter.delete("/:id", deleteUser);
 
 export default clientsRouter
