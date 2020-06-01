@@ -15,7 +15,7 @@ export const updateUser = async (req: Request, res: Response) => {
         await Client.where('id', req.params.id).update({ name: body.value.name, email: body.value.email })
         res.status(200).send({ clients: Client.all() })
     }else{
-        res.status(401).send({ message: "usuário não encontrado" })
+        res.status(404).send({ message: "usuário não encontrado" })
     }
 
 
